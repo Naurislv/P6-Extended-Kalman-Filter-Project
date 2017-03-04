@@ -1,6 +1,7 @@
-"""Simple pythonic Kalman Filter implementation."""
+"""Simple python Kalman Filter implementation."""
 
 import math
+import numpy as np
 
 
 def dg(mju, sigma2, x):
@@ -48,6 +49,14 @@ def KF1D(measurements, motion, measurement_sig, motion_sig, mu, sig):
         motion_sig: motion variance value
         mu = initial mean value
         sig = initial variance value
+
+    Sample inputs:
+        measurements = [5., 6., 7., 9., 10.]
+        motion = [1., 1., 2., 1., 1.]
+        measurement_sig = 4.
+        motion_sig = 2.
+        mu = 0.
+        sig = 10000.
     """
     print('Initial measurement (mean) / motion (variance) {} / {}'.format(mu, sig))
     for n in range(len(measurements)):
@@ -55,3 +64,30 @@ def KF1D(measurements, motion, measurement_sig, motion_sig, mu, sig):
         print('update:', mu, sig)
         mu, sig = predict(mu, sig, motion[n], motion_sig)
         print('predict:', mu, sig)
+
+
+def KFnD(x, P, measurements, H, R, I, F, u):
+    """"Kalman n dimension implementation.
+
+    Sample inputs:
+        measurements = [1, 2, 3]
+        x = np.array([[0.], [0.]])  # initial state (location and velocity)
+        P = np.array([[1000., 0.], [0., 1000.]])  # initial uncertainty
+        u = np.array([[0.], [0.]])  # external motion
+        F = np.array([[1., 1.], [0, 1.]])  # next state function
+        H = np.array([[1., 0.]])  # measurement function
+        R = np.array([[1.]])  # measurement uncertainty
+        I = np.array([[1., 0.], [0., 1.]])  # identity matrix
+    """
+    for n in range(len(measurements)):
+        # measurement update
+        Y = measurements[n] - np.dot(H, x)
+        S = np.dot(np.dot(H, P), H.T) + R
+        K = np.dot(np.dot(P, H.T), np.linalg.inv(S))
+        x = x + np.dot(K, Y)
+        P = np.dot(I - K * H, P)
+        # prediction
+        x = np.dot(F, x) + u
+        P = np.dot(np.dot(F, P), F.T)
+
+    return x, P
