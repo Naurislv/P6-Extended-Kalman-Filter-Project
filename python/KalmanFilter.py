@@ -66,8 +66,8 @@ def KF1D(measurements, motion, measurement_sig, motion_sig, mu, sig):
         print('predict:', mu, sig)
 
 
-def KFnD(x, P, measurements, H, R, I, F, u):
-    """"Kalman n dimension implementation.
+def KF1D_matrix(x, P, measurements, H, R, I, F, u):
+    """"Kalman filter matrix implementation.
 
     Sample inputs:
         measurements = [1, 2, 3]
