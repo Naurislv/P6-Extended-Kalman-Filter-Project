@@ -65,8 +65,8 @@ void filter(VectorXd &x, MatrixXd &P) {
     MatrixXd S;
     MatrixXd K;
 
-	for (unsigned int n = 0; n < measurements.size(); ++n) {
-		VectorXd z = measurements[n];
+    for (unsigned int n = 0; n < measurements.size(); ++n) {
+        VectorXd z = measurements[n];
         MatrixXd Ht = H.transpose();  // transpose H because this value needed in 2 equations
 
         // KF Measurement update step
@@ -78,12 +78,11 @@ void filter(VectorXd &x, MatrixXd &P) {
         x = x + K * Y;
         P = (I - K * H) * P; // covariance
 
-		// KF Prediction step
+        // KF Prediction step
         x = F * x + u;
         P = F * P * F.transpose() + Q;
 
-		std::cout << "x=" << std::endl <<  x << std::endl;
-		std::cout << "P=" << std::endl <<  P << std::endl;
-
-	}
+        std::cout << "x=" << std::endl <<  x << std::endl;
+        std::cout << "P=" << std::endl <<  P << std::endl;
+    }
 }
