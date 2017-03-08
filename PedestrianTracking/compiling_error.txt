@@ -1,0 +1,6 @@
+/tmp/ccRpphTI.o: In function `main':
+main.cpp:(.text+0x5dc): undefined reference to `Tracking::Tracking()'
+main.cpp:(.text+0x630): undefined reference to `Tracking::ProcessMeasurement(MeasurementPackage const&)'
+main.cpp:(.text+0xa22): undefined reference to `Tracking::~Tracking()'
+main.cpp:(.text+0xb85): undefined reference to `Tracking::~Tracking()'
+collect2: error: ld returned 1 exit status
