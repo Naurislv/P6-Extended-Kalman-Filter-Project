@@ -7,6 +7,10 @@
 #include "ground_truth_package.h"
 #include "tracking.h"
 
+// To compile all cpp files
+#include "tracking.cpp"
+#include "kalman_filter.cpp"
+
 using namespace std;
 using Eigen::MatrixXd;
 using Eigen::VectorXd;
