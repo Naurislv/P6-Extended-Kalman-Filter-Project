@@ -2,7 +2,7 @@
 #define FusionEKF_H_
 
 #include "measurement_package.h"
-#include "Eigen/Dense"
+#include "../Eigen/Dense"
 #include <vector>
 #include <string>
 #include <fstream>
