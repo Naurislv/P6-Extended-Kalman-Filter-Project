@@ -17,8 +17,17 @@ Self-Driving Car Engineer Nanodegree Program
  * Windows: recommend using [MinGW](http://www.mingw.org/)
 
 
- ### Useful Resources
+## Basic build instructions
 
- The Kalman Filter video lectures : https://www.youtube.com/playlist?list=PLX2gX-ftPVXU3oUFNATxGXY90AULiqnWT
- C++ cheatsheet can be found in repository : Cpp_cheatsheet
- KalmanFilter_cheatsheet PDF (related to lessons) : KalmanFilter_cheatsheet
+1. Clone this repo.
+2. Make a build directory: ```mkdir build && cd build```
+3. Compile: ```cmake .. && make```
+    * On windows, you may need to run: cmake .. -G "Unix Makefiles" && make
+4. Run it: ```./ExtendedKF path/to/input.txt path/to/output.txt```. You can find some sample inputs in 'data/'.
+    * eg. ```./ExtendedKF ../data/sample-laser-radar-measurement-data-1.txt output.txt```
+
+### Useful Resources
+
+The Kalman Filter video lectures : https://www.youtube.com/playlist?list=PLX2gX-ftPVXU3oUFNATxGXY90AULiqnWT
+C++ cheatsheet can be found in repository : Cpp_cheatsheet
+KalmanFilter_cheatsheet PDF (related to lessons) : KalmanFilter_cheatsheet
