@@ -59,6 +59,7 @@ MatrixXd Tools::CalculateJacobian(const VectorXd& x_state) {
 
     if (fabs(sum) < 0.0001) {
         std::cout << "CaculateJacobian () - Error - Division by Zero" << std::endl;
+        throw std::overflow_error( "Division by zero" );
         return Hj;
     } else { //compute the Jacobian matrix
         Hj << px / sum2, py / sum2, 0, 0,

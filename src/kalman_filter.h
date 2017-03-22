@@ -23,6 +23,9 @@ public:
   // measurement covariance matrix
   Eigen::MatrixXd R_;
 
+  // h function
+  Eigen::VectorXd hx_prim;
+
   /**
    * Constructor
    */
