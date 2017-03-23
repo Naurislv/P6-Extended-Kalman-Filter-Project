@@ -103,6 +103,9 @@ void FusionEKF::ProcessMeasurement(const MeasurementPackage &measurement_pack) {
             std::cout << "Initialized vx: " << 0 << '\n';
             std::cout << "Initialized vy: " << 0 << '\n';
 
+            if (px == 0 and py == 0) {
+                set_x = true;
+            }
             ekf_.x_ << px, py, 0, 0;
             previous_timestamp_ = measurement_pack.timestamp_;
         }
@@ -164,8 +167,9 @@ void FusionEKF::ProcessMeasurement(const MeasurementPackage &measurement_pack) {
         // Radar updates
 
         ekf_.R_ = R_radar_;
-        if (measurement_pack.raw_measurements_(0) == 0 and
-            measurement_pack.raw_measurements_(1) == 0) {
+
+        if (measurement_pack.raw_measurements_[0] == 0 and
+            measurement_pack.raw_measurements_[1] == 0) {
             set_x = true;
         } else {
             if (set_x == true) {

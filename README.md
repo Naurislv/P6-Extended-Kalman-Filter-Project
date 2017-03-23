@@ -1,6 +1,16 @@
 # Extended Kalman Filter Project
 #### Self-Driving Car Engineer Nanodegree Program
 
+[//]: # (Image References)
+
+[image1]: ./data_1_Laser.png "data_1_Laser"
+[image2]: ./data_2_Laser.png "data_2_Laser"
+[image3]: ./data_1_Radar.png "data_1_Radar"
+[image4]: ./data_2_Radar.png "data_2_Radar"
+[image5]: ./data_1_Fusion.png "data_1_Fusion"
+[image6]: ./data_2_Fusion.png "data_2_Fusion"
+[image7]: ./KalmanFilter_LidarRadar_map.png "data_2_Fusion"
+
 ---
 ## Summary
 
@@ -12,6 +22,9 @@ This is Udacity Self-Driving Car Engineer Nanodegree program Term 2 first projec
 * python - python implementation of KalmanFilter
 
 To run code search for 'Basic build instructions'
+
+Extended Kalman filter road map:
+![alt text][image7]
 
 Starter code was forked (This is not actual Fork): https://github.com/udacity/CarND-Extended-Kalman-Filter-Project
 
@@ -54,3 +67,21 @@ More tools to generate and plot graphs can be found: https://github.com/udacity/
 * Robert F. Stengel: Optimal Control and Estimation (Dover Books on Mathematics):  https://goo.gl/xibjAK
 * Welch, G. and Bishop, G., “An Introduction to the Kalman Filter”,  SIGGRAPH 2001: https://goo.gl/GhdrPi
 * How Kalman filter works, in pictures: http://www.bzarg.com/p/how-a-kalman-filter-works-in-pictures/
+
+### Results
+
+| RMSE          | px     | py     | vx     | vy     |
+|---------------|--------|--------|--------|--------|
+| Data 1 RADAR  | 0.1012 | 0.0823 | 0.6134 | 0.5819 |
+| Data 2 RADAR  | 0.1511 | 0.2044 | 0.1044 | 0.1288 |
+| Data 1 LASER  | 0.0682 | 0.0572 | 0.6256 | 0.5609 |
+| Data 2 LASER  | 0.2180 | 0.1943 | 0.9375 | 0.8339 |
+| Data 1 Fusion | 0.0651 | 0.0605 | 0.5432 | 0.5442 |
+| Data 2 Fusion | 0.1832 | 0.1903 | 0.4778 | 0.8056 |
+
+![alt text][image1]
+![alt text][image2]
+![alt text][image3]
+![alt text][image4]
+![alt text][image5]
+![alt text][image6]
